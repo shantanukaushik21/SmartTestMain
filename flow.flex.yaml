@@ -1,0 +1,19 @@
+inputs:
+  query:
+    type: string
+    default: ''
+  response:
+    type: string
+    default: ''
+  context:
+    type: string
+    default: ''
+  ground_truth:
+    type: string
+    default: ''
+init:
+  model_config:
+    type: object
+entry: _qa:QAEvaluator
+environment:
+  python_requirements_txt: requirements.txt
