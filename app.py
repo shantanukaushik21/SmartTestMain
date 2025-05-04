@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from dotenv import load_dotenv
 import os
 
@@ -11,6 +12,7 @@ from azure.ai.evaluation import BleuScoreEvaluator
 
 # Setup Flask app
 app = Flask(__name__)
+CORS(app)
 
 # Load environment variables
 load_dotenv()
@@ -28,7 +30,6 @@ model_config = {
     "azure_deployment": deployment_name
 }
 
-# https://smarttesthub2117192922.openai.azure.com/
 qa_evaluator = QAEvaluator(model_config=model_config, _parallel=True)
 bleu_evaluator = BleuScoreEvaluator()
 
